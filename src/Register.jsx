@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [avatar, setAvatar] = useState("");
+  const [preview, setPreview] = useState(null);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,38 +52,85 @@ function Register() {
           navigate('/login');
         }, 1000)
   }
-})
+});
+  };
 
-const getAvatar = () => {
-  const avatarId = Math.floor(Math.random() * 70) + 1;
-  return `https://o.pravatar.cc/200?img=${avatarId}`
-}
-const handleAvatar = () => {
-  setAvatar(getAvatar());
-};
+  // Function to handle avatar selection
+  const handleAvatar = () => {
+    document.getElementById('avatarInput').click(); // Trigger file input click
+  };
+
+  // Handle file input change event
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setAvatar(file); // Store the file
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result); // Preview the image
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
 const nextLogin = () =>
 {
-  navigate('/login')
-}
-  }
+  navigate('/login');
+  };
+
+
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Registrera</h1>
-      <input type="text" placeholder="Avatar" value={avatar} onChange={(e) => setAvatar(e.target.value)}/>
-      <br />
-      <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-      <br />
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-      <br />
-      <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-      <br />
-      <button type="submit">Registrera</button>
-      
-      {error && <p>{error}</p>}
-      {success && <p>{success}</p>}
-    </form>
+    <div className="hero min-h-screen"
+      style={{
+        backgroundImage:
+          "url(https://c4.wallpaperflare.com/wallpaper/165/383/672/halo-video-games-halo-infinite-xbox-wallpaper-preview.jpg)",
+      }}>
+      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-content flex-col text-white">
+        <div className="text-justify-start lg:text-top">
+          <h1 className="text-5xl font-bold">Register now!</h1>
+          <p className="py-6">Create your account to start your journey!</p>
+        </div>
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <form className="card-body" onSubmit={handleSubmit}>
+            <div className="form-control text-center">
+              <h2 className="text-xl">Choose your Avatar!</h2>
+              <img src={preview || 'https://via.placeholder.com/150'} alt="Avatar Preview" width="150" height="150" className="my-4 mx-auto" />
+              <button type="button" className="btn btn-warning mb-4" onClick={handleAvatar}>Choose your avatar</button>
+              <input type="file" id="avatarInput" style={{ display: 'none' }} accept="image/*" onChange={handleFileChange} />
+              <input type="text" placeholder="Avatar" value={avatar ? avatar.name : 'No file chosen'} readOnly className="input input-bordered mb-4" />
+            </div>
+            <div className="form-control">
+                <label className="label">
+                    <span className="label-text">Username</span>
+                    </label>
+              <input type="text" placeholder="Username" className="input input-bordered" value={username} onChange={(e) => setUsername(e.target.value)} required />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input type="email" placeholder="Email" className="input input-bordered" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input type="password" placeholder="Password" className="input input-bordered" value={password} onChange={(e) => setPassword(e.target.value)} required />
+            </div>
+            {error && <p className="text-red-500">{error}</p>}
+            {success && <p className="text-green-500">{success}</p>}
+            <div className="form-control mt-6">
+              <button type="submit" className="btn btn-warning">Register</button>
+            </div>
+            <div className="form-control mt-4">
+              <button type="button" className="btn btn-link" onClick={nextLogin}>Have an account?</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
 export default Register;
