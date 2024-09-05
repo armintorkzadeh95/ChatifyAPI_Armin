@@ -95,8 +95,7 @@ function Login() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-              }}
-            >
+              }} >
      <div className="hero-overlay bg-opacity-60 absolute top-0 left-0 w-full h-full"></div>
       <div className="hero-content flex-col text-white">
         <div className="text-justify-start lg:text-top">

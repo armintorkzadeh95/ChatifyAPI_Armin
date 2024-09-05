@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 function SideNav() {
   const navigate = useNavigate();
 
-  // Funktion för att logga ut
   const handleLogout = () => {
     localStorage.clear();
     alert('Du har loggats ut.');

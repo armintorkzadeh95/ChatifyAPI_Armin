@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-// State hook för att hantera chatkomponenten
 function Chat() {
   const [messages, setMessages] = useState([]); 
   const [input, setInput] = useState("");
@@ -42,7 +41,6 @@ function Chat() {
         });
 };
 
-  // Hämtar användarinformation från localStorage när komponenten laddas
   useEffect(() => {
     if (jwtToken) {
       const decodeUser = decodeToken(jwtToken);
@@ -54,7 +52,6 @@ function Chat() {
     getMessages();
   }, [jwtToken]);
 
-  // Skickar ett meddelande
   const sendMessage = async () => {
     const sanitizedInput = input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     const newMessage = { text: sanitizedInput, conversationId: null };
@@ -128,8 +125,7 @@ function Chat() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               alignItems: "center",
-            }}
-          >
+            }} >
           <div className="hero-overlay bg-opacity-60 absolute top-0 left-0 w-full h-full"></div>
           <div className="p-4 bg-opacity-70 backdrop-blur-lg">
           <div className="space-y-4">
