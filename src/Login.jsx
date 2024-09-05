@@ -80,17 +80,24 @@ function Login() {
             )
           }
 
-  return (
-    <div style={{ 
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-    backgroundImage: "url(https://wallpapercat.com/w/full/3/b/3/728251-3840x2160-desktop-4k-halo-ring-background-image.jpg)",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }} >
-     <div className="hero-overlay bg-opacity-60"></div>
+          return (
+            <div
+              style={{
+                position: "absolute",
+                top: 64,
+                left: 0,
+                width: "100%",
+                height: "93%",
+                backgroundImage:
+                  "url(https://wallpapercat.com/w/full/3/b/3/728251-3840x2160-desktop-4k-halo-ring-background-image.jpg)",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+     <div className="hero-overlay bg-opacity-60 absolute top-0 left-0 w-full h-full"></div>
       <div className="hero-content flex-col text-white">
         <div className="text-justify-start lg:text-top">
           <h1 className="text-5xl font-bold">Login now!</h1>
@@ -98,7 +105,7 @@ function Login() {
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form className="card-body" onSubmit={handleLogin}>
-            <div className="form-control">
+            <div className="form-control text-center">
               <label className="label">
                 <span className="label-text">Username</span>
               </label>

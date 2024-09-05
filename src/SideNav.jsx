@@ -24,12 +24,11 @@ function SideNav() {
           width: '100%',
         }}>
       <div className="navbar-start">
-        <a className="text-xl px-3 text-white">ChatifyAPI</a>
+        <a onClick={handleHome} className="btn btn-ghost text-xl text-white">ChatifyAPI</a>
       </div>
       <div className="navbar-center hidden lg:flex">
       </div>
       <div className="navbar-end px-3">
-      <button onClick={handleHome} className="btn btn-warning ml-4">Home</button>
       <button onClick={handleLogout} className="btn btn-warning ml-2 ">Log out</button>
       </div>
     </div>

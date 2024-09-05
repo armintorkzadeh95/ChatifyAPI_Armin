@@ -115,32 +115,35 @@ function Chat() {
         navigate('/login');
         };
 
-  return (
-      <div style={{
-        position: "absolute",
-        top: 63,
-        left: 0,
-        width: '100%',
-        height: '100vh',
-          backgroundImage: "url(https://c4.wallpaperflare.com/wallpaper/165/383/672/halo-video-games-halo-infinite-xbox-wallpaper-preview.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }} >
-          <div className=" w-full">
-          <div className="hero-overlay bg-opacity-60"></div>
+        return (
+          <div
+            style={{
+              position: "absolute",
+              top: 64,
+              left: 0,
+              width: "100%",
+              height: "93%",
+              backgroundImage:
+                "url(https://wallpapercat.com/w/full/3/b/3/728251-3840x2160-desktop-4k-halo-ring-background-image.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              alignItems: "center",
+            }}
+          >
+          <div className="hero-overlay bg-opacity-60 absolute top-0 left-0 w-full h-full"></div>
           <div className="p-4 bg-opacity-70 backdrop-blur-lg">
           <div className="space-y-4">
           <div className="chat-header">
               {user ? (
                 <h2>Welcome, {user.user}!</h2>
               ) : (
-                <button type="button" className="btn btn-link" onClick={nextRegister}>Register to chat!</button>
+                <button type="button" className="btn btn-warning" onClick={nextRegister}>Don't have an account? Register to chat!</button>
               )}
               <br />
               {user ? (
                 <h2></h2>
               ) : (
-                <button type="button" className="btn btn-link" onClick={nextLogin}>Log in to chat!</button>
+                <button type="button" className="btn btn-warning mt-4" onClick={nextLogin}>Already have an account? Log in to chat!</button>
               )}
             </div>
             {messages.map((msg, index) => (
@@ -167,10 +170,9 @@ function Chat() {
           </div>
           <div className="flex mt-4">
             <input className="input input-bordered w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="send message..." />
-            <button className="btn ml-2 btn btn-warning" onClick={sendMessage}>Send</button>
+            <button className="btn ml-2 btn-warning" onClick={sendMessage}>Send</button>
           </div>
         </div>
-      </div>
       </div>
     );
   }
