@@ -16,12 +16,15 @@ const navigate = useNavigate();
             };
 
             return (
-                  <div className="hero min-h-screen"
-                    style={{
-                      backgroundImage: "url(https://c4.wallpaperflare.com/wallpaper/165/383/672/halo-video-games-halo-infinite-xbox-wallpaper-preview.jpg)",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                    }} >
+              <div style={{ 
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+              backgroundImage: "url(https://wallpapercat.com/w/full/3/b/3/728251-3840x2160-desktop-4k-halo-ring-background-image.jpg)",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }} >
                        <div className="hero-overlay bg-opacity-60"></div>
                       <div className="hero-content flex-col text-white">
                         <div className="text-justify-start lg:text-top">
