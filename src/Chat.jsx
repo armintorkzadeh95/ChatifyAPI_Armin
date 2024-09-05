@@ -76,21 +76,29 @@ function Chat() {
       console.error('There was a problem with sending your message:', error);
     }
   };
-  const deleteMessage = async (msgId) => {
-    try {
-      const response = await fetch(`https://chatify-api.up.railway.app/messages/${msgId}`, { method: 'DELETE', headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + jwtToken,
-        },
-      });
 
-      if (!response.ok) {
-        console.error('Failed to delete message');
-        return;
+  // TODO: Börja lyssna på Sebbe.
+  // TODO2: Om du ska använda ChatGPT, ställ åtminstone frågan vad fan som sker i koden din.
+  const deleteMessage = async (msgId) => {
+    if (confirm("Är du säker?") === true) {
+      try {
+        const response = await fetch(`https://chatify-api.up.railway.app/messages/${msgId}`,
+          {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: 'Bearer ' + jwtToken,
+            },
+          });
+  
+        if (!response.ok) {
+          console.error('Failed to delete message');
+          return;
+        }
+        setMessages(messages.filter((msg) => msg.id !== msgId));
+      } catch (error) {
+        console.error('There was a problem with deleting your message:', error);
       }
-      setMessages(messages.filter((msg) => msg.id !== msgId));
-    } catch (error) {
-      console.error('There was a problem with deleting your message:', error);
     }
   };
 
@@ -98,13 +106,10 @@ function Chat() {
     <div>
       <div>
         {messages.map((msg, index) => (
-          // <div key={index} style={{ textAlign: msg.email === user?.email ? 'right' : 'left' }}>
-          //   <span>{msg.text}</span>
-          //   {msg.email === user?.email && (
-          //     <button onClick={() => deleteMessage(msg.id)}>Radera</button>
-          //   )}
-          // </div>
-          <>{msg.text}</>
+          <div key={index} style={{ textAlign: msg.email === user?.email ? 'right' : 'left' }}>
+            <span className="m-2">{msg.text}</span>
+            <button className="m-2 text-xs text-white" onClick={() => deleteMessage(msg.id)}>Radera</button>
+          </div>
         ))}
       </div>
       <input value={input} onChange={(e) => setInput(e.target.value)} />
