@@ -28,14 +28,14 @@ const navigate = useNavigate();
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   display: "flex",
-                  justifyContent: "center", // Center horizontally
-                  alignItems: "center", // Center vertically
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
               >
       <div className="hero-overlay bg-opacity-60 absolute top-0 left-0 w-full h-full"></div>
       <div className="hero-content flex-col text-white relative z-10">
         <div className="text-center">
-          <h1 className="text-5xl font-bold">Welcome to Armin's ChatifyAPI</h1>
+          <h1 className="text-5xl font-bold">Welcome to Armin's ChatifyAPI <br /> Halo Edition</h1>
           <div className="avatar">
             <div className="ring-primary ring-offset-base-100 rounded-full ring ring-offset-2 size-96 m-8">
               <img src="https://avatarfiles.alphacoders.com/327/327168.jpg" alt="Avatar" />
