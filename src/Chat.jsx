@@ -19,7 +19,6 @@ function Chat() {
     }
   };
 
-  // Fake messages array with Master Chief's avatar
   const fakeMessages = [
     { text: "Captian Keyes ~ Halo: Combat Evolved", name: "Master Chief", avatar: "https://pbs.twimg.com/profile_images/1487458038479003651/QaaBLRjC_400x400.jpg" },
     { text: "I need a weapon ~ Halo 2", name: "Master Chief", avatar: "https://pbs.twimg.com/profile_images/1487458038479003651/QaaBLRjC_400x400.jpg" },
@@ -57,21 +56,18 @@ function Chat() {
         localStorage.setItem('user', JSON.stringify(decodeUser));
       }
     }
-    // Show initial fake messages
     setMessages(fakeMessages);
 
-    // Fetch actual messages after a slight delay (simulating loading effect)
     setTimeout(() => {
       getMessages();
     }, 3000);
   }, [jwtToken]);
 
-  // Function to trigger a random fake response from Master Chief
   const triggerFakeResponse = () => {
     const randomMessage = fakeMessages[Math.floor(Math.random() * fakeMessages.length)];
     setTimeout(() => {
       setMessages((prevMessages) => [...prevMessages, randomMessage]);
-    }, 2000); // Delay fake response by 2 seconds
+    }, 2000);
   };
 
   const sendMessage = async () => {
@@ -96,7 +92,6 @@ function Chat() {
       setMessages([...messages, { ...createdMessage.latestMessage, name: user?.user, avatar: user?.avatar }]);
       setInput('');
 
-      // Trigger a random fake response after sending a message
       triggerFakeResponse();
 
     } catch (error) {
@@ -107,7 +102,6 @@ function Chat() {
   const deleteMessage = async (msg) => {
     if (confirm("Are you sure?") === true) {
       if (msg.id) {
-        // Handle real messages (messages with an ID)
         try {
           const response = await fetch(`https://chatify-api.up.railway.app/messages/${msg.id}`,
             {
@@ -126,7 +120,6 @@ function Chat() {
           console.error('There was a problem with deleting your message:', error);
         }
       } else {
-        // Handle fake messages (messages without an ID)
         setMessages(messages.filter((message) => message !== msg));
       }
     }
@@ -179,7 +172,7 @@ function Chat() {
               <img 
                 alt="Avatar" 
                 src={msg.name === user?.user ? user?.avatar : msg.avatar || "https://via.placeholder.com/150"} 
-              /> {/* Show user's avatar if message is from the user, otherwise show Master Chief's or fallback avatar */}
+              />
             </div>
           </div>
           <div className="chat-header my-2 px-2">
