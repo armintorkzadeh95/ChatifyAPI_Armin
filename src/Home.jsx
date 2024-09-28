@@ -42,8 +42,7 @@ const navigate = useNavigate();
             </div>
           </div>
           <p className="py-6 px-8">
-            To chat, please log in or sign up. If you don’t have an account yet, it’s quick and easy to register. If you
-            already have an account, just log in and start chatting!
+          Log in or sign up to chat. If you already have an account, just log in and start chatting with Master Chief!
           </p>
           <button onClick={nextRegister} className="btn btn-warning">
             Sign Up
