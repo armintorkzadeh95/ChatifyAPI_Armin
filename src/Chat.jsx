@@ -186,7 +186,7 @@ function Chat() {
       ))}
     </div>
     <div className="flex mt-4">
-      <input className="input input-bordered w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="send message..." />
+      <input className="input input-bordered w-full" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Write your message" />
       <button className="btn ml-2 btn-warning" onClick={sendMessage}>Send</button>
     </div>
   </div>
