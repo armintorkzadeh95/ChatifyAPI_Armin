@@ -83,7 +83,7 @@ const nextLogin = () =>
         top: 64,
         left: 0,
         width: "100%",
-        height: "104%",
+        height: "140%",
         backgroundImage:
           "url(https://wallpapercat.com/w/full/3/b/3/728251-3840x2160-desktop-4k-halo-ring-background-image.jpg)",
         backgroundSize: "cover",
