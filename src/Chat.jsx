@@ -20,7 +20,7 @@ function Chat() {
   };
 
   const fakeMessages = [
-    { text: "Captian Keyes ~ Halo: Combat Evolved", name: "Master Chief", avatar: "https://pbs.twimg.com/profile_images/1487458038479003651/QaaBLRjC_400x400.jpg" },
+    { text: "Captain Keyes ~ Halo: Combat Evolved", name: "Master Chief", avatar: "https://pbs.twimg.com/profile_images/1487458038479003651/QaaBLRjC_400x400.jpg" },
     { text: "I need a weapon ~ Halo 2", name: "Master Chief", avatar: "https://pbs.twimg.com/profile_images/1487458038479003651/QaaBLRjC_400x400.jpg" },
     { text: "Wake me, when you need me ~ Halo 3", name: "Master Chief", avatar: "https://pbs.twimg.com/profile_images/1487458038479003651/QaaBLRjC_400x400.jpg" },
     { text: "We all make mistakes ~ Halo Infinite", name: "Master Chief", avatar: "https://pbs.twimg.com/profile_images/1487458038479003651/QaaBLRjC_400x400.jpg" }
